@@ -62,7 +62,7 @@ export class FilesStore {
     // Load deleted paths from localStorage if available
     try {
       if (typeof localStorage !== 'undefined') {
-        const deletedPathsJson = localStorage.getItem('bolt-deleted-paths');
+        const deletedPathsJson = localStorage.getItem('codeweaver-deleted-paths');
 
         if (deletedPathsJson) {
           const deletedPaths = JSON.parse(deletedPathsJson);
@@ -478,7 +478,7 @@ export class FilesStore {
   #persistDeletedPaths() {
     try {
       if (typeof localStorage !== 'undefined') {
-        localStorage.setItem('bolt-deleted-paths', JSON.stringify([...this.#deletedPaths]));
+        localStorage.setItem('codeweaver-deleted-paths', JSON.stringify([...this.#deletedPaths]));
       }
     } catch (error) {
       logger.error('Failed to persist deleted paths to localStorage', error);
